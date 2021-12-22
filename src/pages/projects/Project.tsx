@@ -11,6 +11,7 @@ import LanguageBadge from "../../components/LanguageBadge";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const Project = () => {
     const params = useParams();
     console.log(params);
@@ -25,7 +26,7 @@ const Project = () => {
             const foundImages = [];
             for (let i = 1; i <= numImages; i++) {
                 foundImages.push(
-                    <img
+                    <LazyLoadImage
                         key={i}
                         src={`/img/${foundProject.type}/${foundProject.id}/${i}.png`}
                         alt={foundProject.title}
@@ -76,7 +77,7 @@ const Project = () => {
                     </Box>
                     {project.overview && (
                         <>
-                            <Typography variant="h6">
+                            <Typography sx={{mt:1}} variant="h6">
                                 Project Overview
                             </Typography>
 
@@ -85,14 +86,14 @@ const Project = () => {
                     )}
                     {project.goals && (
                         <>
-                            <Typography variant="h6">Project Goals</Typography>
+                            <Typography sx={{mt:1}} variant="h6">Project Goals</Typography>
 
                             {project.goals}
                         </>
                     )}
                     {project.testimonials && (
                         <>
-                            <Typography variant="h6">Testimonials</Typography>
+                            <Typography sx={{mt:1}} variant="h6">Testimonials</Typography>
 
                             {project.testimonials}
                         </>
