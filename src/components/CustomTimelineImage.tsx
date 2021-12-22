@@ -8,7 +8,7 @@ const CustomTimelineImage: FC<{ src: string }> = ({ src }) => {
     return (
         <Box
             sx={{ position: "relative", cursor: "pointer" }}
-            onClick={() => window.open(src, "_blank")}
+            // onClick={() => window.open(src, "_blank")}
         >
             <LazyLoadImage
                 src={src}

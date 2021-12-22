@@ -1,12 +1,14 @@
 import React, { ReactElement } from "react";
 
 export interface TimelineItemStruct {
+    id: string;
+    type: "software"|"hardware"|"photography";
     date: string;
     title: string;
     description: string;
     image: ReactElement;
-    github?: string[];
-    website?: string[];
+    totalImages: number;
+    links: { github?: string[]; website?: string[] };
     techs: (
         | "React"
         | "Bootstrap"
@@ -21,6 +23,9 @@ export interface TimelineItemStruct {
         | "MongoDB"
         | string
     )[];
-    icon: ReactElement,
-    status: "Completed"|"In development"|"Stopped development"|string
+    icon: ReactElement;
+    status: "Completed" | "In development" | "Stopped development" | string;
+    overview?: any;
+    goals?: any;
+    testimonials?: any;
 }

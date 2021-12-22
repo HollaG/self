@@ -6,9 +6,9 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
 
-import { FC } from "react";
+import { FC, useState } from "react";
 import { TimelineItemStruct } from "../../types/types";
 import CustomTimelineContent from "./CustomTimelineContent";
 
@@ -24,15 +24,15 @@ import discord from "../../img/software/discord.png";
 import CustomTimelineImage from "../../components/CustomTimelineImage";
 import CustomTimelineHeader from "./CustomTimelineHeader";
 import CustomTimelineHeaderSmall from "./CustomTimelineHeaderSmall";
-
-
-
+import CustomTimelineContentWrapper from "./CustomTimelineContentWrapper";
 
 const TimelineComponent: React.FC<{ entries: TimelineItemStruct[] }> = ({
     entries,
 }) => {
     const theme = useTheme();
     const isBig = useMediaQuery(theme.breakpoints.up("sm"));
+
+    
     return (
         <>
             <Timeline position={isBig ? "alternate" : "right"}>
@@ -48,16 +48,21 @@ const TimelineComponent: React.FC<{ entries: TimelineItemStruct[] }> = ({
                             </TimelineOppositeContent>
                             <TimelineSeparator>
                                 <TimelineDot color="primary">
-
                                     {entry.icon}
                                 </TimelineDot>
                                 <TimelineConnector />
                             </TimelineSeparator>
-                            <TimelineContent>
-                                {!isBig && (
-                                    <CustomTimelineHeaderSmall entry={entry} />
-                                )}
-                                <CustomTimelineContent entry={entry} />
+                            <TimelineContent
+                                
+                            >
+                                <CustomTimelineContentWrapper entry={entry}>
+                                    {!isBig && (
+                                        <CustomTimelineHeaderSmall
+                                            entry={entry}
+                                        />
+                                    )}
+                                    <CustomTimelineContent entry={entry} />
+                                </CustomTimelineContentWrapper>
                             </TimelineContent>
                         </TimelineItem>
                     ))}

@@ -1,7 +1,8 @@
+import Profile from "../../components/Profile"
 import Description from "./Description"
 
 const Hardware = () => {
-    return <Description/>
+    return <><Profile/><Description/></>
 }
 
 export default Hardware
