@@ -1,41 +1,65 @@
 import { Box, Container } from "@mui/material";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Profile from "../../components/Profile";
 import Description from "./Description";
 import TimelineWrapper from "./TimelineWrapper";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import Navigator from "../../components/Navigator";
-
+import { PROFILE_HEIGHT_PX } from "../../components/constants";
+import {isMobile} from 'react-device-detect';
+import useDisplayMode from "../../hooks/useDisplayMode";
 const Software = () => {
     const projectRef = useRef<HTMLDivElement>(null);
     const [brightness, setBrightness] = useState(1);
 
-    // useScrollPosition(({ prevPos, currPos }) => {
-    //     // Brightness range: 1 (0 scroll) to 0.6 (max scroll)
-    //     const adjustedHeight = 0.8 * height < 650 ? 650 : height;
-    //     setBrightness((currPos.y / (adjustedHeight * 0.8)) * 0.4 + 0.6);
-    //     let brightLvl = (currPos.y / (adjustedHeight * 0.8)) * 0.4 + 0.6;
-    //     if (brightLvl > 1) brightLvl = 1
-    //     console.log(brightLvl);
-    //     setBrightness((prevBright) => {
-    //         if (prevBright === brightLvl) return prevBright;
-    //         else return brightLvl;
-    //     });
-    // });
-  
     const { height } = useWindowDimensions();
-    // const [offset, setOffset] = useState('80vh')
-    let offset = "80vh";
-    let position:"fixed"|"static" = "fixed"
-    if (0.8 * height < 650) {
-        // DON'T use the fancy over-scroll trick because if the window height is less than the div height, the content gets pushed off-screen and can't be scrolled into view because of position: fixed
-        offset = "0";
-        position = "static"
-    } else {
-        offset = "80vh";
-        position = 'fixed'
-    }
+    // console.log('/rerender')
+
+    const displayMode = useDisplayMode();
+    useScrollPosition(({ prevPos, currPos }) => {
+        if (displayMode === "normal") return setBrightness(1)
+        // Brightness range: 1 (0 scroll) to 0.6 (max scroll)
+        const adjustedHeight = 0.8 * height < PROFILE_HEIGHT_PX ? PROFILE_HEIGHT_PX : height;
+        
+        let brightLvl = (currPos.y / (adjustedHeight * 0.8)) * 0.4 + 0.6;
+        if (brightLvl > 1) brightLvl = 1
+        // console.log({brightLvl});
+        setBrightness((prevBright) => {
+            if (prevBright === brightLvl) return prevBright;
+            else return brightLvl;
+        });
+    });
+  
+
+
+
+    const [offset, setOffset] = useState('80vh')
+    const [position, setPosition] = useState<"fixed"|"static" >("fixed")
+    useEffect(() => {
+        if (displayMode === 'normal') {
+            // DON'T use the fancy over-scroll trick because if the window height is less than the div height, the content gets pushed off-screen and can't be scrolled into view because of position: fixed
+            setOffset("0")
+            setPosition("static")
+            setBrightness(1)
+        } else {
+            setOffset("80vh")
+            setPosition("fixed")
+        }
+    }, [height, setOffset, setPosition, displayMode])
+
+
+    // let offset = "80vh";
+    // let position:"fixed"|"static" = "fixed"
+    // console.log({height})
+    // if (0.8 * height < PROFILE_HEIGHT_PX) {
+    //     // DON'T use the fancy over-scroll trick because if the window height is less than the div height, the content gets pushed off-screen and can't be scrolled into view because of position: fixed
+    //     offset = "0";
+    //     position = "static"
+    // } else {
+    //     offset = "80vh";
+    //     position = 'fixed'
+    // }
 
     return (
         <Box>

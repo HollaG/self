@@ -6,6 +6,7 @@ import { theme } from "../theme";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef } from "react";
+import { PROFILE_HEIGHT_PX } from "./constants";
 const Profile: React.FC<{ projectRef: React.RefObject<HTMLDivElement> }> = ({
     projectRef,
 }) => {
@@ -26,7 +27,7 @@ const Profile: React.FC<{ projectRef: React.RefObject<HTMLDivElement> }> = ({
 
     const navRef = useRef<HTMLDivElement>(null);
     return (
-        <Box sx={{ height: "80vh", minHeight: "650px" }}>
+        <Box sx={{ height: "80vh", minHeight: `${PROFILE_HEIGHT_PX}px` }}>
             <Box
                 sx={{
                     // backgroundColor: theme.palette.primary.main,
