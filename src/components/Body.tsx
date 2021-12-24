@@ -1,4 +1,4 @@
-import Profile from "./Profile";
+import Profile from "../pages/Profile";
 
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { Box, Typography } from "@mui/material";

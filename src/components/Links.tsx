@@ -25,22 +25,22 @@ const Links: React.FC<{ entry: TimelineItemStruct }> = ({ entry }) => {
         >
             {entry.links.github &&
                 entry.links.github.map((link: string, index: number) => (
-                    <Box>
-                        <Button
-                            sx={{ mr: 1, mb: 1, backgroundColor: "#181717" }}
-                            size="small"
-                            variant="contained"
-                            startIcon={<FontAwesomeIcon icon={faGithub} />}
-                            onClick={(evt) => openner(evt, link)}
-                        >
-                            Github
-                        </Button>
-                    </Box>
+                    <Button
+                        key={index}
+                        sx={{ mr: 1, mb: 1, backgroundColor: "#181717" }}
+                        size="small"
+                        variant="contained"
+                        startIcon={<FontAwesomeIcon icon={faGithub} />}
+                        onClick={(evt) => openner(evt, link)}
+                    >
+                        Github
+                    </Button>
                 ))}
             {entry.links.website &&
                 entry.links.website.map((link: string, index: number) => (
                     <Button
-                        sx={{ mr: 1, mb:1 }}
+                        key={index}
+                        sx={{ mr: 1, mb: 1 }}
                         size="small"
                         variant="contained"
                         color="primary"

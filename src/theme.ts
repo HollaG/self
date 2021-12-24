@@ -15,6 +15,12 @@ export const theme = createTheme({
             color: "white",
             fontFamily: ["Montserrat", "sans-serif"].join(","),
         },
+        projectHeader: {
+            fontSize: "2rem",
+            fontWeight: 800,
+            color: "white",
+            fontFamily: ["Montserrat", "sans-serif"].join(","),
+        }
     },
 });
 
@@ -22,12 +28,14 @@ declare module "@mui/material/styles" {
     interface TypographyVariants {
         profileHeader: React.CSSProperties;
         profileContent: React.CSSProperties;
+        projectHeader: React.CSSProperties;
     }
 
     // allow configuration using `createTheme`
     interface TypographyVariantsOptions {
         profileHeader?: React.CSSProperties;
         profileContent?: React.CSSProperties;
+        projectHeader?: React.CSSProperties;
     }
 }
 
@@ -36,5 +44,6 @@ declare module "@mui/material/Typography" {
     interface TypographyPropsVariantOverrides {
         profileHeader: true;
         profileContent: true
+        projectHeader: true
     }
 }

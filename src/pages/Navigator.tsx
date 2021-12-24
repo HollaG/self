@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import useDisplayMode from "../hooks/useDisplayMode";
 import useWindowDimensions from "../hooks/useWindowDimensions";
-import { PROFILE_HEIGHT_PX } from "./constants";
+import { PROFILE_HEIGHT_PX } from "../components/constants";
 
 const Navigator = () => {
     const navRef = useRef<HTMLDivElement>(null);
@@ -39,24 +39,7 @@ const Navigator = () => {
     });
     return (
         <Box
-            sx={{
-                // mb: 6,
-                textAlign: "center",
-                // pt: 3,
-                height: "80px",
-                background:
-                    "linear-gradient(180deg, rgba(167,199,233,1) 0%, rgba(214,230,246,1) 100%);",
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                position: "sticky",
-                top: -1, // This offset (instead of top: 0) is to fix a bug where on mobile, there will be a gap btwn the navbar and the top of the screen.
-                // This only occurs on mobile, desktop is unaffected
-                zIndex: 10,
-                boxShadow: boxShadowOn ? 3 : 0,
-            }}
-            ref={navRef}
+           
         >
             <Button
                 color="inherit"
@@ -84,7 +67,7 @@ const Navigator = () => {
                 }
             >
                 <Box>
-                    <Typography color="grey-100">SKILLS</Typography>
+                    <Typography >SKILLS</Typography>
                     {/* <FontAwesomeIcon icon={faCaretDown} /> */}
                 </Box>
             </Button>
@@ -99,7 +82,7 @@ const Navigator = () => {
                 }
             >
                 <Box>
-                    <Typography color="grey-100">EDUCATION</Typography>
+                    <Typography >EDUCATION</Typography>
                     {/* <FontAwesomeIcon icon={faCaretDown} /> */}
                 </Box>
             </Button>

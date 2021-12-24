@@ -15,20 +15,6 @@ const Wrapper: React.FC<{
     const { height } = useWindowDimensions();
 
     const displayMode = useDisplayMode();
-    useScrollPosition(({ prevPos, currPos }) => {
-        if (displayMode === "normal") return setBrightness(1);
-        // Brightness range: 1 (0 scroll) to 0.75 (max scroll)
-        const adjustedHeight =
-            0.8 * height < PROFILE_HEIGHT_PX ? PROFILE_HEIGHT_PX : height;
-
-        let brightLvl = (currPos.y / (adjustedHeight * 0.8)) * 0.25 + 0.75;
-        if (brightLvl > 1) brightLvl = 1;
-        // console.log({brightLvl});
-        setBrightness((prevBright) => {
-            if (prevBright === brightLvl) return prevBright;
-            else return brightLvl;
-        });
-    });
 
     const [offset, setOffset] = useState("80vh");
     const [position, setPosition] = useState<"fixed" | "static">("fixed");
@@ -48,6 +34,8 @@ const Wrapper: React.FC<{
 
     useScrollPosition(({ prevPos, currPos }) => {
         if (displayMode === "normal") {
+            setBrightness(1);
+
             // "Normal" mode - only activate the box shadow once the navbar is at the top of the screen (offset of 650px, the height of the profile area)
             let heightOfProfileForBothDesktopAndMobile = 650; // Mobile is always set to 'normal' mode. The profile height might be more than 650px on mobile, so even though it's on normal mode we need to check for it
             if (0.8 * height > PROFILE_HEIGHT_PX) {
@@ -60,6 +48,16 @@ const Wrapper: React.FC<{
                 setBoxShadowOn(true);
             }
         } else {
+            const adjustedHeight =
+                0.8 * height < PROFILE_HEIGHT_PX ? PROFILE_HEIGHT_PX : height;
+
+            let brightLvl = (currPos.y / (adjustedHeight * 0.8)) * 0.25 + 0.75;
+            if (brightLvl > 1) brightLvl = 1;
+            // console.log({brightLvl});
+            setBrightness((prevBright) => {
+                if (prevBright === brightLvl) return prevBright;
+                else return brightLvl;
+            });
             if (Math.round(currPos.y) < 0) {
                 // true when the user hasn't scrolled down (because of the position: fixed element which is 80vh tall)
                 setBoxShadowOn(true);
@@ -85,6 +83,9 @@ const Wrapper: React.FC<{
                     sx={{
                         // backgroundColor: theme.palette.primary.main,
                         textAlign: "center",
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         // background: 'rgb(21,101,192)',
                         background:
                             // "linear-gradient(180deg, rgba(21,101,192,1) 0%, rgba(25,118,210,1) 50%, rgba(66,165,245,1) 100%)",
@@ -129,6 +130,7 @@ const Wrapper: React.FC<{
                         background:
                             "linear-gradient(180deg, rgba(214,230,246,1) 0%, rgba(230,241,251,1) 3%, rgba(246,251,255,1) 16%, rgba(246,251,255,1) 100%);",
                         pt: 2,
+                        minHeight: '100vh'
                     }}
                 >
                     {content}

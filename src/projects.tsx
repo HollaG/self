@@ -17,6 +17,11 @@ import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Typography } from "@mui/material";
 
+const generateText = (text: string[]) =>
+    text.map((line, index) => (
+        <Typography key={index} sx={{ textAlign: "justify" }}>{line}</Typography>
+    ));
+
 export const projects: TimelineItemStruct[] = [
     {
         id: "discord",
@@ -173,37 +178,26 @@ export const projects: TimelineItemStruct[] = [
                 "https://chrome.google.com/webstore/detail/simpleshopping/plnplpfflofeemhiakppmjmmkbicdecb?hl=en&authuser=0",
             ],
         },
-        overview: (
-            <>
-                <Typography>
-                    The idea for this project came about when I was shopping for
-                    one of the big monthly sales. I realised that it was tedious
-                    to manually copy-paste my search term into each e-commerce
-                    website manually.
-                </Typography>
-                <Typography>
-                    Since I had not created a chrome extension before, I thought
-                    this would be a good way to get my feet wet.
-                </Typography>
-                <Typography>
-                    Putting it on the chrome extension store also allows others
-                    to save time doing their own shopping.
-                </Typography>
-            </>
-        ),
-        goals: (
-            <>
-                <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                </Typography>
-            </>
-        ),
+        overview: generateText([
+            ` The idea for this project came about when I was shopping for
+        one of the big monthly sales. I realised that it was tedious
+        to manually copy-paste my search term into each e-commerce
+        website manually.`,
+            `Since I had not created a chrome extension before, I thought
+        this would be a good way to get my feet wet.`,
+            `Putting it on the chrome extension store also allows others
+        to save time doing their own shopping.`,
+        ]),
+
+        goals: generateText([
+            `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+        do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.`,
+        ]),
     },
 ];
