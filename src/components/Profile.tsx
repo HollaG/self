@@ -35,7 +35,7 @@ const Profile: React.FC<{ projectRef: React.RefObject<HTMLDivElement> }> = ({
                     // background: 'rgb(21,101,192)',
                     background:
                         // "linear-gradient(180deg, rgba(21,101,192,1) 0%, rgba(25,118,210,1) 50%, rgba(66,165,245,1) 100%)",
-                        "linear-gradient(180deg, rgba(21,101,192,1) 0%, rgba(58,126,202,1) 65%, rgba(167,199,233,1) 100%);",
+                        "linear-gradient(180deg, rgba(21,101,192,1) 0%, rgba(58,126,202,1) 55%, rgba(167,199,233,1) 100%);",
                     height: "100%",
                 }}
             >

@@ -19,10 +19,10 @@ const Software = () => {
     const displayMode = useDisplayMode();
     useScrollPosition(({ prevPos, currPos }) => {
         if (displayMode === "normal") return setBrightness(1)
-        // Brightness range: 1 (0 scroll) to 0.6 (max scroll)
+        // Brightness range: 1 (0 scroll) to 0.75 (max scroll)
         const adjustedHeight = 0.8 * height < PROFILE_HEIGHT_PX ? PROFILE_HEIGHT_PX : height;
         
-        let brightLvl = (currPos.y / (adjustedHeight * 0.8)) * 0.4 + 0.6;
+        let brightLvl = (currPos.y / (adjustedHeight * 0.8)) * 0.25 + 0.75;
         if (brightLvl > 1) brightLvl = 1
         // console.log({brightLvl});
         setBrightness((prevBright) => {
@@ -88,7 +88,7 @@ const Software = () => {
                 <Box
                     sx={{
                         background:
-                            "linear-gradient(180deg, rgba(230,241,251,1) 0%, rgba(246,251,255,1) 10%, rgba(246,251,255,1) 100%);",
+                            "linear-gradient(180deg, rgba(214,230,246,1) 0%, rgba(230,241,251,1) 3%, rgba(246,251,255,1) 16%, rgba(246,251,255,1) 100%);",
                         pt: 2,
                     }}
                 >

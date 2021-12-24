@@ -45,7 +45,7 @@ const Navigator = () => {
                 // pt: 3,
                 height: "80px",
                 background:
-                    "linear-gradient(180deg, rgba(167,199,233,1) 0%, rgba(230,241,251,1) 100%);",
+                    "linear-gradient(180deg, rgba(167,199,233,1) 0%, rgba(214,230,246,1) 100%);",
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
