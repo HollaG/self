@@ -35,7 +35,7 @@ const TimelineComponent: React.FC<{ entries: TimelineItemStruct[] }> = ({
     
     return (
         <>
-            <Timeline position={isBig ? "alternate" : "right"}>
+            <Timeline position={isBig ? "alternate" : "right"} sx={{m:0}}>
                 {entries &&
                     entries.map((entry, index) => (
                         <TimelineItem key={index}>
