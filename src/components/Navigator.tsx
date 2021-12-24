@@ -70,7 +70,7 @@ const Navigator = () => {
             >
                 <Box>
                     <Typography color="grey-100">PROJECTS</Typography>
-                    <FontAwesomeIcon icon={faCaretDown} />
+                    {/* <FontAwesomeIcon icon={faCaretDown} /> */}
                 </Box>
             </Button>
             <Button
@@ -85,7 +85,7 @@ const Navigator = () => {
             >
                 <Box>
                     <Typography color="grey-100">SKILLS</Typography>
-                    <FontAwesomeIcon icon={faCaretDown} />
+                    {/* <FontAwesomeIcon icon={faCaretDown} /> */}
                 </Box>
             </Button>
             <Button
@@ -100,7 +100,7 @@ const Navigator = () => {
             >
                 <Box>
                     <Typography color="grey-100">EDUCATION</Typography>
-                    <FontAwesomeIcon icon={faCaretDown} />
+                    {/* <FontAwesomeIcon icon={faCaretDown} /> */}
                 </Box>
             </Button>
         </Box>

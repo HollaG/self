@@ -27,7 +27,7 @@ const Profile: React.FC<{ projectRef: React.RefObject<HTMLDivElement> }> = ({
 
     const navRef = useRef<HTMLDivElement>(null);
     return (
-        <Box sx={{ height: "80vh", minHeight: `${PROFILE_HEIGHT_PX}px` }}>
+        
             <Box
                 sx={{
                     // backgroundColor: theme.palette.primary.main,
@@ -36,7 +36,8 @@ const Profile: React.FC<{ projectRef: React.RefObject<HTMLDivElement> }> = ({
                     background:
                         // "linear-gradient(180deg, rgba(21,101,192,1) 0%, rgba(25,118,210,1) 50%, rgba(66,165,245,1) 100%)",
                         "linear-gradient(180deg, rgba(21,101,192,1) 0%, rgba(58,126,202,1) 55%, rgba(167,199,233,1) 100%);",
-                    height: "100%",
+                    // height: "100%",
+                    height: "80vh", minHeight: `${PROFILE_HEIGHT_PX}px` 
                 }}
             >
                 <Container
@@ -92,83 +93,8 @@ const Profile: React.FC<{ projectRef: React.RefObject<HTMLDivElement> }> = ({
                     </Box>
                 </Container>
             </Box>
-            {/* <Box
-                sx={{
-                    height: "35%",
-                    background:
-                        "linear-gradient(180deg, rgba(66,165,245,1) 0%, rgba(246,251,255,1) 100%);",
-                    pb: 5,
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-end",
-                    alignItems: "center",
-                    color: "black",
-                    position: "sticky",
-                    top: 0,
-                }}
-            >
-                <Box
-                    sx={{
-                        mb: 6,
-                        textAlign: "center",
-                        pt: 3
-                    }}
-                    ref={navRef}
-                >
-                    <Button
-                        color="inherit"
-                        onClick={() =>
-                            navRef &&
-                            navRef.current &&
-                            navRef.current.scrollIntoView({
-                                behavior: "smooth",
-                            })
-                        }
-                    >
-                        <Box>
-                            <Typography color="grey-100">
-                                PROJECTS
-                            </Typography>
-                            <FontAwesomeIcon icon={faCaretDown} />
-                        </Box>
-                    </Button>
-                    <Button
-                        color="inherit"
-                        onClick={() =>
-                            navRef &&
-                            navRef.current &&
-                            navRef.current.scrollIntoView({
-                                behavior: "smooth",
-                            })
-                        }
-                    >
-                        <Box>
-                            <Typography color="grey-100">
-                                SKILLS
-                            </Typography>
-                            <FontAwesomeIcon icon={faCaretDown} />
-                        </Box>
-                    </Button>
-                    <Button
-                        color="inherit"
-                        onClick={() =>
-                            navRef &&
-                            navRef.current &&
-                            navRef.current.scrollIntoView({
-                                behavior: "smooth",
-                            })
-                        }
-                    >
-                        <Box>
-                            <Typography color="grey-100">
-                                EDUCATION
-                            </Typography>
-                            <FontAwesomeIcon icon={faCaretDown} />
-                        </Box>
-                    </Button>
-                </Box>
-            </Box> */}
-        </Box>
+            
+        
     );
 };
 
