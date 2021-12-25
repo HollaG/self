@@ -3,14 +3,17 @@ import React from "react";
 import "./App.css";
 import Body from "./components/Body";
 
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import ScrollToTop from "./util/ScrollToTop";
 function App() {
     return (
-        <Router>
+        <BrowserRouter>
             {/* <Container maxWidth="lg" sx={{ my: 2 }}> */}
+            <ScrollToTop>
                 <Body />
+            </ScrollToTop>
             {/* </Container> */}
-        </Router>
+        </BrowserRouter>
     );
 }
 

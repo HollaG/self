@@ -6,9 +6,7 @@ import { TimelineItemStruct } from "../types/types";
 
 const Links: React.FC<{ entry: TimelineItemStruct }> = ({ entry }) => {
     const openner = (
-        evt:
-            | React.MouseEvent<SVGSVGElement, MouseEvent>
-            | React.MouseEvent<HTMLButtonElement, MouseEvent>,
+        evt: React.MouseEvent<HTMLButtonElement, MouseEvent>,
         link: string
     ) => {
         evt.stopPropagation();

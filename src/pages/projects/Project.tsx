@@ -1,9 +1,9 @@
 import { Box, Button, Container, Typography } from "@mui/material";
-import { ReactElement, useEffect, useState } from "react";
+import { createRef, ReactElement, useEffect, useRef, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import { useParams } from "react-router";
 import { projects } from "../../projects";
-import { TimelineItemStruct } from "../../types/types";
+import { SectionType, TimelineItemStruct } from "../../types/types";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ReactMarkdown from "react-markdown";
 import LanguageBadge from "../../components/LanguageBadge";
@@ -29,10 +29,19 @@ const Project = () => {
         }
         
     }, []);
+    
+    // Obtain the project's sections and map them each to a ref
+    const sections:string[] = Object.keys(project || []).filter((key) => key === "overview" || key === "goals" || key === "testimonials" || key === "technical")
+    const sectionRefs = useRef<Array<HTMLElement | null>>([]);
+    console.log({sections, sectionRefs})
+    if (!project) return <></>;
+
+
+
     return (
         <>
             {/* <Gallery entry={project} /> */}
-            <Wrapper upper={<Heading entry={project}/>} content={<Content entry={project}/>} nav={<Navigator entry={project}/>}/>
+            <Wrapper upper={<Heading entry={project}/>} content={<Content entry={project} sections={sections} sectionRefs={sectionRefs}/>} nav={<Navigator entry={project} sections={sections} sectionRefs={sectionRefs}/>}/>
         </>
         // <Container maxWidth="sm" sx={{ py: 2 }}>
         //     {project && (

@@ -9,15 +9,14 @@ const Body = () => {
     return (
         <>
             <Routes>
-                
-                    <Route path="/" element={<Software />} />
-                    <Route path="/software" element={<Software />} />
-                    <Route path="/hardware" element={<Hardware />} />
-                    <Route
-                        path="/photography"
-                        element={<Typography> photography</Typography>}
-                    />
-               
+                <Route path="/" element={<Software />} />
+                <Route path="/software" element={<Software />} />
+                <Route path="/hardware" element={<Hardware />} />
+                <Route
+                    path="/photography"
+                    element={<Typography> photography</Typography>}
+                />
+
                 <Route path="/projects/:project" element={<Project />} />
             </Routes>
         </>

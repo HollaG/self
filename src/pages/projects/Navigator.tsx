@@ -1,54 +1,34 @@
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Button, Typography } from "@mui/material";
+import { MutableRefObject, RefObject } from "react";
 import { TimelineItemStruct } from "../../types/types";
 
-const Navigator: React.FC<{ entry: TimelineItemStruct|null }> = ({ entry }) => {
+const Navigator: React.FC<{
+    entry: TimelineItemStruct;
+    sections: string[];
+    sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>
+}> = ({ entry, sections, sectionRefs }) => {
+    console.log(sectionRefs)
     return (
         <Box>
-            <Button
-                color="inherit"
-                // onClick={() =>
-                //     navRef &&
-                //     navRef.current &&
-                //     navRef.current.scrollIntoView({
-                //         behavior: "smooth",
-                //     })
-                // }
-            >
-                <Box>
-                    <Typography>OVERVIEW</Typography>
-                    {/* <FontAwesomeIcon icon={faCaretDown} /> */}
-                </Box>
-            </Button>
-            <Button
-                color="inherit"
-                // onClick={() =>
-                //     navRef &&
-                //     navRef.current &&
-                //     navRef.current.scrollIntoView({
-                //         behavior: "smooth",
-                //     })
-                // }
-            >
-                <Box>
-                    <Typography>GOALS</Typography>
-                    {/* <FontAwesomeIcon icon={faCaretDown} /> */}
-                </Box>
-            </Button>
-            <Button
-                color="inherit"
-                // onClick={() =>
-                //     navRef &&
-                //     navRef.current &&
-                //     navRef.current.scrollIntoView({
-                //         behavior: "smooth",
-                //     })
-                // }
-            >
-                <Box>
-                    <Typography>TESTIMONIALS</Typography>
-                    {/* <FontAwesomeIcon icon={faCaretDown} /> */}
-                </Box>
-            </Button>
+            {sections?.map((section, index) => (
+                <Button
+                    key={index}
+                    onClick={() => {
+                        console.log(sectionRefs.current[index], index,)
+                        sectionRefs.current[index]?.scrollIntoView({
+                            behavior: "smooth",
+                        });
+                    }}
+                    color="inherit"
+                >
+                    <Box>
+                        <Typography>{section}</Typography>
+                        <FontAwesomeIcon icon={faCaretDown} />
+                    </Box>
+                </Button>
+            ))}
         </Box>
     );
 };

@@ -15,12 +15,18 @@ import TimelineComponent from "./components/Timeline/TimelineComponent";
 import { faChrome, faNodeJs } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const generateText = (text: string[]) =>
-    text.map((line, index) => (
-        <Typography key={index} sx={{ textAlign: "justify" }}>{line}</Typography>
-    ));
+    text.map((line, index) =>
+        line === "space" ? (
+            <Box key={index} sx={{ my: 2 }} />
+        ) : (
+            <Typography  key={index} variant="h6" color="#444444" sx={{ textAlign: "left" }}>
+                {line}
+            </Typography>
+        )
+    );
 
 export const projects: TimelineItemStruct[] = [
     {
@@ -136,6 +142,7 @@ export const projects: TimelineItemStruct[] = [
         image: <CustomTimelineImage src="/img/software/exifchart/1.png" />,
         totalImages: 1,
         techs: ["React", "TypeScript", "Tailwind", "ChartJS"],
+
         icon: <FontAwesomeIcon icon={faGlobe} />,
         status: "Completed",
         links: {
@@ -153,6 +160,7 @@ export const projects: TimelineItemStruct[] = [
         image: <CustomTimelineImage src="/img/software/eoc/1.png" />,
         totalImages: 1,
         techs: ["React", "Material-UI", "TypeScript", "MongoDB", "NodeJS"],
+        techsBrief: ["React", "NodeJS", "MongoDB"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
         status: "In development",
         links: {
@@ -179,25 +187,23 @@ export const projects: TimelineItemStruct[] = [
             ],
         },
         overview: generateText([
-            ` The idea for this project came about when I was shopping for
-        one of the big monthly sales. I realised that it was tedious
-        to manually copy-paste my search term into each e-commerce
-        website manually.`,
-            `Since I had not created a chrome extension before, I thought
-        this would be a good way to get my feet wet.`,
-            `Putting it on the chrome extension store also allows others
-        to save time doing their own shopping.`,
+            `A Chrome Extension to help people search different sites without going to the actual site first, with support for batch searching.`,
+            `space`,
+            `Project completed November 2021.`,
         ]),
 
         goals: generateText([
-            `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-        do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit
-        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum.`,
+            `➟ To decrease time spent doing repetitive searches`,
+            `➟ To allow users to set up different shopping profiles for different scenarios`,
+            `➟ To experiment with the Chrome Extension development workflow`,
+        ]),
+        technical: generateText([
+            `Language`,
+            `➟ TypeScript`,
+            `space`,
+            `Frontend`,
+            `➟ React`,
+            `➟ Tailwind`,
         ]),
     },
 ];

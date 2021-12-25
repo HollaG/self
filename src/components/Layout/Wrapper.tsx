@@ -3,7 +3,7 @@ import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useState, useEffect } from "react";
 import useDisplayMode from "../../hooks/useDisplayMode";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import { PROFILE_HEIGHT_PX } from "../constants";
+import { NAVIGATOR_HEIGHT_PX, PROFILE_HEIGHT_PX } from "../constants";
 
 const Wrapper: React.FC<{
     upper: React.ReactNode;
@@ -108,13 +108,14 @@ const Wrapper: React.FC<{
                         // mb: 6,
                         textAlign: "center",
                         // pt: 3,
-                        height: "80px",
+                        height: `${NAVIGATOR_HEIGHT_PX}px`,
                         background:
                             "linear-gradient(180deg, rgba(167,199,233,1) 0%, rgba(214,230,246,1) 100%);",
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",
                         justifyContent: "center",
+                        flexWrap: 'wrap',
                         position: "sticky",
                         top: -1, // This offset (instead of top: 0) is to fix a bug where on mobile, there will be a gap btwn the navbar and the top of the screen.
                         // This only occurs on mobile, desktop is unaffected
@@ -130,7 +131,7 @@ const Wrapper: React.FC<{
                         background:
                             "linear-gradient(180deg, rgba(214,230,246,1) 0%, rgba(230,241,251,1) 3%, rgba(246,251,255,1) 16%, rgba(246,251,255,1) 100%);",
                         pt: 2,
-                        minHeight: '100vh'
+                        minHeight: '100vh',
                     }}
                 >
                     {content}
