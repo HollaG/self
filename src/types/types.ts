@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 
 export interface TimelineItemStruct {
     id: string;
-    type: "software"|"hardware"|"photography";
+    type: "software" | "hardware" | "photography";
     date: string;
     title: string;
     description: string;
@@ -23,25 +23,32 @@ export interface TimelineItemStruct {
         | "MongoDB"
         | string
     )[];
-    techsBrief?: (| "React"
-    | "Bootstrap"
-    | "Material-UI"
-    | "Tailwind"
-    | "TypeScript"
-    | "JavaScript"
-    | "NodeJS"
-    | "ExpressJS"
-    | "Pug"
-    | "MySQL"
-    | "MongoDB"
-    | string)[];
+    techsBrief?: (
+        | "React"
+        | "Bootstrap"
+        | "Material-UI"
+        | "Tailwind"
+        | "TypeScript"
+        | "JavaScript"
+        | "NodeJS"
+        | "ExpressJS"
+        | "Pug"
+        | "MySQL"
+        | "MongoDB"
+        | string
+    )[];
     icon: ReactElement;
     status: "Completed" | "In development" | "Stopped development" | string;
-    overview?: any;
-    goals?: any;
-    testimonials?: any;
-    technical?: any;
+    
+    detailed: {
+        overview?: any;
+        goals?: any;
+        testimonials?: any;
+        technical?: any;
+    [key: string]: any;
+
+    };
     [key: string]: any;
 }
 
-export type SectionType = "overview" | "goals" | "testimonials" | "technical"; 
+export type SectionType = "overview" | "goals" | "testimonials" | "technical";

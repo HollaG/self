@@ -44,7 +44,7 @@ const Content: React.FC<{
                     <NegativeOffset key={index} index={index} refArray={sectionRefs}>
                         
                         <ContentBlock
-                            content={entry[section]}
+                            content={entry.detailed[section]}
                             type={capitalizeFirstLetter(section)}
                         />
                     </NegativeOffset>
