@@ -36,7 +36,7 @@ const Content: React.FC<{
     ];
     const skills = {
         frontend: ["React", "Bootstrap", "Material-UI", "Tailwind"],
-        backend: ["NodeJS", "ExpressJS", "Typescript", "JavaScript", "Pug"],
+        backend: ["NodeJS", "ExpressJS", "TypeScript", "JavaScript", "Pug"],
         database: ["MongoDB", "MySQL"],
         libraries: ["ChartJS", "FusionCharts"],
     };
@@ -103,8 +103,8 @@ const Content: React.FC<{
                         }}
                     />
                     <Timeline>
-                        {educations.map((education) => (
-                            <TimelineItem>
+                        {educations.map((education, index) => (
+                            <TimelineItem key={index}>
                                 <TimelineOppositeContent>
                                     {education.date}
                                 </TimelineOppositeContent>

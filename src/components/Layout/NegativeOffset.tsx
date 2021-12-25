@@ -19,7 +19,7 @@ const NegativeOffset: React.FC<{
                 }}
                 sx={{
                     position: "absolute",
-                    top: `-${NAVIGATOR_HEIGHT_PX}px`,
+                    top: `-${NAVIGATOR_HEIGHT_PX + 15}px`, // 16 is the padding size of the container minus 1 because of top: -1 fix that we applied
                     left: 0,
                 }}
             />

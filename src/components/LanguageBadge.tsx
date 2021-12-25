@@ -64,7 +64,7 @@ const TechBadge: React.FC<{
                 "https://img.shields.io/badge/-ChartJS-FF6384?logo=chartdotjs&logoColor=white";
             break;
     }
-    return <img style={{ margin: 2 }} src={src} />;
+    return <img style={{ margin: 2 }} src={src} alt={tech} />;
 };
 
 export default TechBadge;
