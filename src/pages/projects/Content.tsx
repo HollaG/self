@@ -2,6 +2,7 @@ import { Box, Container, Divider, Typography } from "@mui/material";
 import { MutableRefObject, ReactElement, RefObject } from "react";
 import { NAVIGATOR_HEIGHT_PX } from "../../components/constants";
 import LanguageBadge from "../../components/LanguageBadge";
+import NegativeOffset from "../../components/Layout/NegativeOffset";
 import {
     SectionType as SectionType,
     TimelineItemStruct,
@@ -40,24 +41,13 @@ const Content: React.FC<{
         >
             {sections.map((section, index) => {
                 return (
-                    <Box key={index} sx={{ position: "relative" }}>
-                        {/* This element to account for the fact we have an overhanging nav bar and allows us to offset it by the 'top' property. See: https://stackoverflow.com/questions/24665602/scrollintoview-scrolls-just-too-far */}
-                        <Box
-                            ref={(el: HTMLElement) => {
-                                sectionRefs.current[index] = el;
-                                return el;
-                            }}
-                            sx={{
-                                position: "absolute",
-                                top: `-${NAVIGATOR_HEIGHT_PX}px`,
-                                left: 0,
-                            }}
-                        />
+                    <NegativeOffset key={index} index={index} refArray={sectionRefs}>
+                        
                         <ContentBlock
                             content={entry[section]}
                             type={capitalizeFirstLetter(section)}
                         />
-                    </Box>
+                    </NegativeOffset>
                 );
             })}
 

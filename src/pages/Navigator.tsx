@@ -8,13 +8,15 @@ import useDisplayMode from "../hooks/useDisplayMode";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { PROFILE_HEIGHT_PX } from "../components/constants";
 
-const Navigator = () => {
+const Navigator: React.FC<{
+    softwareRefs: React.MutableRefObject<(HTMLElement | null)[]>;
+}> = ({ softwareRefs }) => {
     const navRef = useRef<HTMLDivElement>(null);
     const [boxShadowOn, setBoxShadowOn] = useState(false);
     const { height } = useWindowDimensions();
 
     const displayMode = useDisplayMode();
-    console.log(displayMode);
+
     useScrollPosition(({ prevPos, currPos }) => {
         if (displayMode === "normal") {
             // "Normal" mode - only activate the box shadow once the navbar is at the top of the screen (offset of 650px, the height of the profile area)
@@ -38,15 +40,24 @@ const Navigator = () => {
         }
     });
     return (
-        <Box
-           
-        >
+        <Box>
             <Button
                 color="inherit"
                 onClick={() =>
-                    navRef &&
-                    navRef.current &&
-                    navRef.current.scrollIntoView({
+                    softwareRefs.current[0]?.scrollIntoView({
+                        behavior: "smooth",
+                    })
+                }
+            >
+                <Box>
+                    <Typography>SKILLS</Typography>
+                    {/* <FontAwesomeIcon icon={faCaretDown} /> */}
+                </Box>
+            </Button>
+            <Button
+                color="inherit"
+                onClick={() =>
+                    softwareRefs.current[1]?.scrollIntoView({
                         behavior: "smooth",
                     })
                 }
@@ -59,30 +70,13 @@ const Navigator = () => {
             <Button
                 color="inherit"
                 onClick={() =>
-                    navRef &&
-                    navRef.current &&
-                    navRef.current.scrollIntoView({
+                    softwareRefs.current[2]?.scrollIntoView({
                         behavior: "smooth",
                     })
                 }
             >
                 <Box>
-                    <Typography >SKILLS</Typography>
-                    {/* <FontAwesomeIcon icon={faCaretDown} /> */}
-                </Box>
-            </Button>
-            <Button
-                color="inherit"
-                onClick={() =>
-                    navRef &&
-                    navRef.current &&
-                    navRef.current.scrollIntoView({
-                        behavior: "smooth",
-                    })
-                }
-            >
-                <Box>
-                    <Typography >EDUCATION</Typography>
+                    <Typography>EXPERIENCE</Typography>
                     {/* <FontAwesomeIcon icon={faCaretDown} /> */}
                 </Box>
             </Button>

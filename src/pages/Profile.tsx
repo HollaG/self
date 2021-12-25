@@ -70,7 +70,7 @@ const Profile: React.FC = ({}) => {
                     display="block"
                 >
                     I love creating products to solve problems! Scroll down to
-                    see some of them.
+                    see my work.
                 </Typography>
                 <Box sx={{ textAlign: "center", mt: 2 }}>
                     <Button variant="contained" color="success">

@@ -10,9 +10,10 @@ import { PROFILE_HEIGHT_PX } from "../../components/constants";
 import { isMobile } from "react-device-detect";
 import useDisplayMode from "../../hooks/useDisplayMode";
 import Wrapper from "../../components/Layout/Wrapper";
+import Content from "./Content";
 
 const Software = () => {
-    const projectRef = useRef<HTMLDivElement>(null);
+
     const [brightness, setBrightness] = useState(1);
 
     const { height } = useWindowDimensions();
@@ -60,25 +61,14 @@ const Software = () => {
     //     position = 'fixed'
     // }
 
+    const softwareRefs = useRef<(HTMLElement | null)[]>([]);
+
     const ProfileElement = <Profile />;
-    const NavElement = <Navigator />;
-    const TimelineElement = (
-        <Container
-            maxWidth="xl"
-            ref={projectRef}
-            id="projects"
-            sx={
-                {
-                    // mt: -4,
-                }
-            }
-        >
-            <TimelineWrapper />
-        </Container>
-    );
+    const NavElement = <Navigator softwareRefs={softwareRefs}/>;
+    const ContentElement = <Content softwareRefs={softwareRefs} />
     return (
         
-        <Wrapper  upper={ProfileElement} nav={NavElement} content={TimelineElement} />
+        <Wrapper upper={ProfileElement} nav={NavElement} content={ContentElement} />
         // <Box>
         //     <Box
         //         sx={{
