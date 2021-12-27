@@ -1,29 +1,31 @@
 import { Box } from "@mui/material";
 import { FC } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import SimpleShopping from "../img/software/simpleshopping.jpg";
-
-const CustomTimelineImage: FC<{ src: string, placeholderSrc?: string }> = ({ src, placeholderSrc }) => {
+import LazyLoad from "react-lazyload";
+const CustomTimelineImage: FC<{
+    alt: string;
+    src: string;
+    placeholderSrc?: string;
+}> = ({ alt, src, placeholderSrc }) => {
     return (
         <Box
             sx={{ position: "relative", cursor: "pointer" }}
             // onClick={() => window.open(src, "_blank")}
         >
-            <LazyLoadImage
-                src={src}
-                placeholderSrc={placeholderSrc}
-                style={{
-                    width: "100%",
-                    maxHeight: "700px",
-                    objectFit: "contain",
-                    
-                    borderRadius: "10px",
-                    
-                }}
+            <LazyLoad height={400} offset={400}>
+                <img
+                    src={src}
+                    style={{
+                        width: "100%",
+                        maxHeight: "700px",
+                        objectFit: "contain",
 
-                effect="opacity"
-            />
+                        borderRadius: "10px",
+                      
+                    }}
+                    alt={alt}
+                />
+            </LazyLoad>
+
             {/* <img
                 style={{
                     width: "100%",

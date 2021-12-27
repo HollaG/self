@@ -1,6 +1,7 @@
 import { Container } from "@mui/material";
 import { useState, ReactElement, useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import LazyLoad from "react-lazyload";
 import { Carousel } from "react-responsive-carousel";
 import { useParams } from "react-router";
 import { projects } from "../../projects";
@@ -16,12 +17,13 @@ const Gallery: React.FC<{
             const foundImages = [];
             for (let i = 1; i <= numImages; i++) {
                 foundImages.push(
-                    <LazyLoadImage
-                        key={i}
-                        src={`/img/${entry.type}/${entry.id}/${i}.png`}
-                        alt={entry.title}
-                       
-                    />
+                    <LazyLoad key={i}>
+                        <img
+                            src={`/img/${entry.type}/${entry.id}/${i}.png`}
+                            alt={entry.title}
+                            
+                        />
+                    </LazyLoad>
                 );
             }
             setImages(foundImages);
@@ -30,7 +32,6 @@ const Gallery: React.FC<{
         //  else setProject("none");
     }, [entry]);
 
-    
     return (
         <Container maxWidth="md">
             <Carousel showThumbs={false}>{images}</Carousel>

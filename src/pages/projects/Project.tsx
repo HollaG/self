@@ -18,9 +18,6 @@ import {
     faChevronRight,
     faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import Gallery from "./Gallery";
 import Wrapper from "../../components/Layout/Wrapper";
 import Heading from "./Heading";
 import Navigator from "./Navigator";

@@ -1,5 +1,5 @@
 import { Box, Button, Container, Typography } from "@mui/material";
-import profileIcon from "../img/profile.jpg";
+// import profileIcon from "../img/profile.webp";
 import ToggleAbility from "../components/ToggleAbility";
 import { useLocation } from "react-router-dom";
 import { theme } from "../theme";
@@ -51,8 +51,8 @@ const Profile: React.FC = ({}) => {
                     }}
                 >
                     <img
-                        style={{ width: "100%", height: "100%" }}
-                        src={profileIcon}
+                        style={{ width: "200px", height: "200px" }}
+                        src={"/img/profile.webp"}
                         alt=""
                     />
                 </Box>

@@ -35,7 +35,7 @@ export const projects: TimelineItemStruct[] = [
         title: "Discord Bot",
         description:
             "A Discord bot with admin functionality, as well as game-specific commands and a scoring system.",
-        image: <CustomTimelineImage src="/img/software/discord/1.png" placeholderSrc="/img/software/discord/small.png" />,
+        image: <CustomTimelineImage alt="Discord" src="/img/software/discord/1.webp" placeholderSrc="/img/software/discord/small.png" />,
         totalImages: 1,
         techs: ["NodeJS", "MySQL"],
         icon: <FontAwesomeIcon icon={faNodeJs} />,
@@ -60,8 +60,8 @@ export const projects: TimelineItemStruct[] = [
         date: "November 2019",
         title: "Logistics management system",
         description:
-            "A logistics management system to help club members keep track of camera equipment easily.",
-        image: <CustomTimelineImage src="/img/software/studiov/1.png" placeholderSrc="/img/software/studiov/small.png" />,
+            "A logistics management system to help videography club members keep track of camera equipment easily.",
+        image: <CustomTimelineImage alt="Logistics management system" src="/img/software/studiov/1.webp" placeholderSrc="/img/software/studiov/small.png" />,
         totalImages: 1,
         techs: ["Bootstrap", "NodeJS", "ExpressJS", "Pug", "MySQL"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -86,7 +86,7 @@ export const projects: TimelineItemStruct[] = [
         title: "COVID-19 interactive grapher",
         description:
             "A web application to help users visualize COVID-19 data, with support for graphs using custom axes and plots.",
-        image: <CustomTimelineImage src="/img/software/covid/1.png" placeholderSrc="/img/software/covid/small.png" />,
+        image: <CustomTimelineImage alt="COVID-19 interactive grapher" src="/img/software/covid/1.webp" placeholderSrc="/img/software/covid/small.png" />,
         totalImages: 1,
         techs: ["JavaScript", "Pug", "ExpressJS", "FusionCharts"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -111,7 +111,7 @@ export const projects: TimelineItemStruct[] = [
         title: "2D Chemistry Lab",
         description:
             "A 2D chemistry lab supporting basic visualization of chemical reactions as tested in the A Level syllabus.",
-        image: <CustomTimelineImage src="/img/software/chemlab/1.png" placeholderSrc="/img/software/chemlab/small.png" />,
+        image: <CustomTimelineImage alt="2D Chemistry Lab" src="/img/software/chemlab/1.webp" placeholderSrc="/img/software/chemlab/small.png" />,
         totalImages: 1,
         techs: ["JavaScript", "Pug", "ExpressJS"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -137,7 +137,7 @@ export const projects: TimelineItemStruct[] = [
         title: "SAF Parade State Generator",
         description:
             "A web application to help keep track of personnel in the SAF, reducing the hassle of manually entering data.",
-        image: <CustomTimelineImage src="/img/software/paradestate/1.png" placeholderSrc="/img/software/paradestate/small.png" />,
+        image: <CustomTimelineImage alt="SAF Parade State Generator" src="/img/software/paradestate/1.webp" placeholderSrc="/img/software/paradestate/small.png" />,
         totalImages: 1,
         techs: ["Bootstrap", "NodeJS", "ExpressJS", "Pug", "MySQL"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -175,7 +175,7 @@ export const projects: TimelineItemStruct[] = [
         title: "ComputerCheck",
         description:
             "A tool to gather information about laptops and monitors in one place, making it easier to search across the different retailer sites.",
-        image: <CustomTimelineImage src="/img/software/computercheck/1.png" placeholderSrc="/img/software/computercheck/small.png" />,
+        image: <CustomTimelineImage alt="ComputerCheck" src="/img/software/computercheck/1.webp" placeholderSrc="/img/software/computercheck/small.png" />,
         totalImages: 1,
         techs: ["Bootstrap", "NodeJS", "ExpressJS", "Pug", "MySQL"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -211,7 +211,7 @@ export const projects: TimelineItemStruct[] = [
         title: "EXIFChart",
         description:
             "A web application to help users analyze and chart the EXIF data of a batch of images.",
-        image: <CustomTimelineImage src="/img/software/exifchart/1.png" placeholderSrc="/img/software/exifchart/small.png" />,
+        image: <CustomTimelineImage alt="EXIFChart" src="/img/software/exifchart/1.webp" placeholderSrc="/img/software/exifchart/small.png" />,
         totalImages: 1,
         techs: ["React", "TypeScript", "Tailwind", "ChartJS"],
 
@@ -245,7 +245,7 @@ export const projects: TimelineItemStruct[] = [
         title: "SAF electronic Operation Checklists",
         description:
             "A web application to complete vehicluar operation checklists online, reducing paper wastage.",
-        image: <CustomTimelineImage src="/img/software/eoc/1.png" placeholderSrc="/img/software/eoc/small.png" />,
+        image: <CustomTimelineImage alt="SAF electronic Operation Checklists" src="/img/software/eoc/1.webp" placeholderSrc="/img/software/eoc/small.png" />,
         totalImages: 1,
         techs: ["React", "Material-UI", "TypeScript", "MongoDB", "NodeJS"],
         techsBrief: ["React", "NodeJS", "MongoDB"],
@@ -283,7 +283,7 @@ export const projects: TimelineItemStruct[] = [
         title: "SimpleShopping",
         description:
             "A chrome extension to aid users in their online shopping journey, with multiple quality-of-life features.",
-        image: <CustomTimelineImage src="/img/software/simpleshopping/1.png" placeholderSrc="/img/software/simpleshopping/small.png" />,
+        image: <CustomTimelineImage alt="SimpleShopping" src="/img/software/simpleshopping/1.webp" placeholderSrc="/img/software/simpleshopping/small.png" />,
         totalImages: 5,
         techs: ["React", "TypeScript", "Tailwind"],
         icon: <FontAwesomeIcon icon={faChrome} />,
