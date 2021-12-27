@@ -4,7 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import SimpleShopping from "../img/software/simpleshopping.jpg";
 
-const CustomTimelineImage: FC<{ src: string }> = ({ src }) => {
+const CustomTimelineImage: FC<{ src: string, placeholderSrc?: string }> = ({ src, placeholderSrc }) => {
     return (
         <Box
             sx={{ position: "relative", cursor: "pointer" }}
@@ -12,16 +12,17 @@ const CustomTimelineImage: FC<{ src: string }> = ({ src }) => {
         >
             <LazyLoadImage
                 src={src}
+                placeholderSrc={placeholderSrc}
                 style={{
                     width: "100%",
                     maxHeight: "700px",
                     objectFit: "contain",
-                   
+                    
                     borderRadius: "10px",
                     
                 }}
 
-             
+                effect="opacity"
             />
             {/* <img
                 style={{

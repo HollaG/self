@@ -82,10 +82,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
 }));
 const Project = () => {
-    console.log("rerender")
+
     const classes = useStyles();
     const params = useParams();
-    console.log(params);
+
     const [project, setProject] = useState<TimelineItemStruct | null>(null);
     const [adjacentProjects, setAdjacentProjects] = useState<{
         prev: TimelineItemStruct | null;
@@ -126,7 +126,7 @@ const Project = () => {
     // https://stackoverflow.com/questions/54633690/how-can-i-use-multiple-refs-for-an-array-of-elements-with-hooks
     const sections: string[] = Object.keys(project?.detailed || []);
     const sectionRefs = useRef<Array<HTMLElement | null>>([]);
-    console.log({ sections, sectionRefs });
+
 
     const navigate = useNavigate();
 
@@ -134,7 +134,7 @@ const Project = () => {
 
     const handleNavigate = (direction: "next" | "prev") => {
         let newProjectIndex: number;
-        console.log({ direction, projectIndex });
+
         
         let newProject = adjacentProjects[direction];
         if (direction === "next") {
