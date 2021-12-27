@@ -5,9 +5,9 @@ import LanguageBadge from "../LanguageBadge";
 const CustomTimelineHeader: React.FC<{ entry: TimelineItemStruct }> = ({
     entry,
 }) => {
-    let color:"success"|"error"|"info" = 'success'
+    let color:"success"|"error"|"primary" = 'success'
     if (entry.status === 'Stopped development') color = 'error'
-    if (entry.status === 'In development') color = 'info'
+    if (entry.status === 'In development') color = 'primary'
     let chip = <Chip size="small" label={entry.status} color={color}/>;
     return (
         <>
