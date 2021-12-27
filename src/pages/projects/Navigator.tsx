@@ -9,7 +9,7 @@ const Navigator: React.FC<{
     sections: string[];
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;
 }> = ({ entry, sections, sectionRefs }) => {
-    console.log(sectionRefs);
+
     return (
         <Box>
             {sections?.map((section, index) => (

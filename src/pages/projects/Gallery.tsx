@@ -20,6 +20,7 @@ const Gallery: React.FC<{
                         key={i}
                         src={`/img/${entry.type}/${entry.id}/${i}.png`}
                         alt={entry.title}
+                       
                     />
                 );
             }

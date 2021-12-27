@@ -14,6 +14,8 @@ import {
     faAngleLeft,
     faAngleRight,
     faCaretLeft,
+    faChevronLeft,
+    faChevronRight,
     faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -38,6 +40,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         cursor: "pointer",
         "&:hover": {
             "& $tooltipLeft": { opacity: 1, left: "100%" },
+            "& $navIcon": { transform: "scale(1.2)" },
         },
     },
     tooltipLeft: {
@@ -54,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         bottom: 0,
         right: 0,
         padding: "1rem",
-        
+
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -62,6 +65,8 @@ const useStyles = makeStyles((theme: Theme) => ({
         cursor: "pointer",
         "&:hover": {
             "& $tooltipRight": { opacity: 1, right: "100%" },
+            "& $navIcon": { transform: "scale(1.2)" },
+
         },
     },
     tooltipRight: {
@@ -71,14 +76,24 @@ const useStyles = makeStyles((theme: Theme) => ({
         opacity: 0,
         transition: "all 0.3s ease-in-out",
     },
+    navIcon: {
+        transition: "all 0.3s ease-in-out",
+
+    }
 }));
 const Project = () => {
+    console.log("rerender")
     const classes = useStyles();
     const params = useParams();
     console.log(params);
     const [project, setProject] = useState<TimelineItemStruct | null>(null);
+    const [adjacentProjects, setAdjacentProjects] = useState<{
+        prev: TimelineItemStruct | null;
+        next: TimelineItemStruct | null;
+    }>({ prev: null, next: null });
+
     const [projectIndex, setProjectIndex] = useState(0);
-    useEffect(() => {
+    useEffect(() => {        
         const foundProjectIndex = projects.findIndex(
             (p) => p.id === params.project
         );
@@ -86,8 +101,26 @@ const Project = () => {
         if (foundProjectIndex !== -1) {
             setProject(projects[foundProjectIndex]);
             setProjectIndex(foundProjectIndex);
+
+            let prevProject: TimelineItemStruct;
+            let nextProject: TimelineItemStruct;
+            if (foundProjectIndex === 0) {
+                prevProject = projects[projects.length - 1];
+            } else {
+                prevProject = projects[foundProjectIndex - 1];
+            }
+            if (foundProjectIndex === projects.length - 1) {
+                nextProject = projects[0];
+            } else {
+                nextProject = projects[foundProjectIndex + 1];
+            }
+
+            setAdjacentProjects({
+                prev: prevProject,
+                next: nextProject,
+            })
         }
-    }, []);
+    }, [project, params.project]);
 
     // Obtain the project's sections and map them each to a ref
     // https://stackoverflow.com/questions/54633690/how-can-i-use-multiple-refs-for-an-array-of-elements-with-hooks
@@ -102,27 +135,29 @@ const Project = () => {
     const handleNavigate = (direction: "next" | "prev") => {
         let newProjectIndex: number;
         console.log({ direction, projectIndex });
+        
+        let newProject = adjacentProjects[direction];
         if (direction === "next") {
             // setProjectIndex((prev) => prev + 1);
-            if (projectIndex === projects.length - 1) {
-                newProjectIndex = 0;
-            } else {
-                newProjectIndex = projectIndex + 1;
-            }
+            // if (projectIndex === projects.length - 1) {
+            //     newProjectIndex = 0;
+            // } else {
+            //     newProjectIndex = projectIndex + 1;
+            // }
         } else {
             // setProjectIndex((prev) => prev - 1);
-            if (projectIndex === 0) {
-                newProjectIndex = projects.length - 1;
-            } else {
-                newProjectIndex = projectIndex - 1;
-            }
+            // if (projectIndex === 0) {
+            //     newProjectIndex = projects.length - 1;
+            // } else {
+            //     newProjectIndex = projectIndex - 1;
+            // }
         }
         let url = `/projects/${encodeURIComponent(
-            projects[newProjectIndex].id
+            newProject!.id
         )}`;
         navigate(url);
-        setProject(projects[newProjectIndex]);
-        setProjectIndex(newProjectIndex);
+        setProject(newProject);
+        
     };
 
     return (
@@ -131,19 +166,32 @@ const Project = () => {
             <Box
                 onClick={() => handleNavigate("prev")}
                 className={classes.wrapperLeft}
+                display={{ xs: "none", md: "flex" }}
             >
-                <FontAwesomeIcon icon={faAngleLeft} size="3x" />
-                <Typography className={classes.tooltipLeft} variant="h6">
-                    PREVIOUS&nbsp;PROJECT
+                <FontAwesomeIcon
+                    icon={faChevronLeft}
+                    color="#444444"
+                    size="2x"
+                    className={classes.navIcon}
+                />
+                <Typography className={classes.tooltipLeft} variant="tooltip">
+                    {adjacentProjects.prev?.title}
                 </Typography>
             </Box>
             <Box
                 onClick={() => handleNavigate("next")}
                 className={classes.wrapperRight}
+                display={{ xs: "none", md: "flex" }}
             >
-                <FontAwesomeIcon icon={faAngleRight} size="3x" />
-                <Typography className={classes.tooltipRight} variant="h6">
-                    NEXT&nbsp;PROJECT
+                <FontAwesomeIcon
+                    icon={faChevronRight}
+                    color="#444444"
+                    size="2x"
+                    className={classes.navIcon}
+
+                />
+                <Typography className={classes.tooltipRight} variant="tooltip">
+                    {adjacentProjects.next?.title}
                 </Typography>
             </Box>
             <Wrapper

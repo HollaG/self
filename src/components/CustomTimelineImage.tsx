@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { FC } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import SimpleShopping from "../img/software/simpleshopping.jpg";
 
 const CustomTimelineImage: FC<{ src: string }> = ({ src }) => {
@@ -14,12 +14,14 @@ const CustomTimelineImage: FC<{ src: string }> = ({ src }) => {
                 src={src}
                 style={{
                     width: "100%",
-                    height: "100%",
                     maxHeight: "700px",
                     objectFit: "contain",
                    
                     borderRadius: "10px",
+                    
                 }}
+
+             
             />
             {/* <img
                 style={{
