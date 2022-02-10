@@ -52,6 +52,13 @@ export const projects: TimelineItemStruct[] = [
                 "space",
                 `Project completed December 2018.`,
             ]),
+            technical: generateText([
+                `Language`,
+                `➟ JavaScript`,                
+                `Backend`,
+                `➟ NodeJS`,
+              
+            ])
         },
     },
     {
@@ -62,7 +69,7 @@ export const projects: TimelineItemStruct[] = [
         description:
             "A logistics management system to help videography club members keep track of camera equipment easily.",
         image: <CustomTimelineImage alt="Logistics management system" src="/img/software/studiov/1.webp" placeholderSrc="/img/software/studiov/small.png" />,
-        totalImages: 1,
+        totalImages: 3,
         techs: ["Bootstrap", "NodeJS", "ExpressJS", "Pug", "MySQL"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
         status: "Completed",
@@ -77,6 +84,17 @@ export const projects: TimelineItemStruct[] = [
                 `space`,
                 `Project completed March 2020.`,
             ]),
+            technical: generateText([
+                `Language`,
+                `➟ JavaScript`,
+                `space`,
+                `Frontend`,
+                `➟ Bootstrap 5`,
+                `space`,
+                `Backend`,
+                `➟ NodeJS with Express`,
+                `➟ MySQL`,
+            ])
         },
     },
     {
@@ -87,7 +105,7 @@ export const projects: TimelineItemStruct[] = [
         description:
             "A web application to help users visualize COVID-19 data, with support for graphs using custom axes and plots.",
         image: <CustomTimelineImage alt="COVID-19 interactive grapher" src="/img/software/covid/1.webp" placeholderSrc="/img/software/covid/small.png" />,
-        totalImages: 1,
+        totalImages: 2,
         techs: ["JavaScript", "Pug", "ExpressJS", "FusionCharts"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
         status: "Completed",
@@ -112,7 +130,7 @@ export const projects: TimelineItemStruct[] = [
         description:
             "A 2D chemistry lab supporting basic visualization of chemical reactions as tested in the A Level syllabus.",
         image: <CustomTimelineImage alt="2D Chemistry Lab" src="/img/software/chemlab/1.webp" placeholderSrc="/img/software/chemlab/small.png" />,
-        totalImages: 1,
+        totalImages: 4,
         techs: ["JavaScript", "Pug", "ExpressJS"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
         status: "Stopped development",
@@ -176,7 +194,7 @@ export const projects: TimelineItemStruct[] = [
         description:
             "A tool to gather information about laptops and monitors in one place, making it easier to search across the different retailer sites.",
         image: <CustomTimelineImage alt="ComputerCheck" src="/img/software/computercheck/1.webp" placeholderSrc="/img/software/computercheck/small.png" />,
-        totalImages: 1,
+        totalImages: 2,
         techs: ["Bootstrap", "NodeJS", "ExpressJS", "Pug", "MySQL"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
         status: "Completed",
@@ -212,7 +230,7 @@ export const projects: TimelineItemStruct[] = [
         description:
             "A web application to help users analyze and chart the EXIF data of a batch of images.",
         image: <CustomTimelineImage alt="EXIFChart" src="/img/software/exifchart/1.webp" placeholderSrc="/img/software/exifchart/small.png" />,
-        totalImages: 1,
+        totalImages: 4,
         techs: ["React", "TypeScript", "Tailwind", "ChartJS"],
 
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -314,6 +332,45 @@ export const projects: TimelineItemStruct[] = [
                 `Frontend`,
                 `➟ React`,
                 `➟ Tailwind`,
+            ]),
+        },
+    },
+    {
+        id: "paradestatev2",
+        type: "software",
+        date: "Jan 2022",
+        title: "SAF Parade State Generator v2",
+        description:
+            "A performance- and visually- enhanced version of the old Parade State Generator.",
+        image: <CustomTimelineImage alt="SAF Parade State Generator" src="/img/software/paradestatev2/1.webp" placeholderSrc="/img/software/paradestatev2/small.png" />,
+        totalImages: 2,
+        techs: ["React", "NextJS", "Chakra UI", "Material-UI", "TypeScript", "MySQL"],
+        icon: <FontAwesomeIcon icon={faGlobe} />,
+        status: "Completed",
+        links: {
+            github: [],
+            website: [],
+        },
+        detailed: {
+            overview: generateText([
+                `Version 2 of the SAF Parade State Generator website.`,
+                `In the 4 months since the first version was completed, I learnt new skills such as React and NextJS.`,
+                `Thus, I rewrote the entire website, with a focus on performance.`,                
+                `space`,
+                `Project currently being maintained.`,
+            ]),
+            technical: generateText([
+                `Language`,
+                `➟ TypeScript`,
+                `space`,
+                `Frontend`,
+                `➟ ReactJS`,
+                `➟ Chakra UI`,
+                `➟ Material UI (datepickers)`,
+                `space`,
+                `Backend`,
+                `➟ NextJS`,
+                `➟ MySQL`,
             ]),
         },
     },

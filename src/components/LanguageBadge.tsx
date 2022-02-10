@@ -7,6 +7,14 @@ const TechBadge: React.FC<{
             src =
                 "https://img.shields.io/badge/-ReactJS-61DAFB?logo=react&logoColor=white&style=flat";
             break;
+        case "NextJS":
+            src =
+                "https://img.shields.io/badge/-Next.JS-000000?logo=next.js&logoColor=white&style=flat";
+            break;
+        case "Chakra UI":
+            src =
+                "https://img.shields.io/badge/-Chakra%20UI-319795?logo=chakraui&logoColor=white&style=flat";
+            break;
         case "Bootstrap":
             src =
                 "https://img.shields.io/badge/-Bootstrap%205-7952B3?logo=bootstrap&logoColor=white&style=flat";

@@ -35,7 +35,7 @@ const Content: React.FC<{
         },
     ];
     const skills = {
-        frontend: ["React", "Bootstrap", "Material-UI", "Tailwind"],
+        frontend: ["React", "NextJS", "Chakra UI", "Bootstrap", "Material-UI", "Tailwind"],
         backend: ["NodeJS", "ExpressJS", "TypeScript", "JavaScript", "Pug"],
         database: ["MongoDB", "MySQL"],
         libraries: ["ChartJS", "FusionCharts"],

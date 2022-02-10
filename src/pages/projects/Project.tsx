@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         bottom: 0,
         padding: "1rem",
 
-        display: "flex",
+        // display: "flex",
         justifyContent: "center",
         alignItems: "center",
         zIndex: 20,
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         right: 0,
         padding: "1rem",
 
-        display: "flex",
+        // display: "flex",
         justifyContent: "center",
         alignItems: "center",
         zIndex: 20,
@@ -63,7 +63,6 @@ const useStyles = makeStyles((theme: Theme) => ({
         "&:hover": {
             "& $tooltipRight": { opacity: 1, right: "100%" },
             "& $navIcon": { transform: "scale(1.2)" },
-
         },
     },
     tooltipRight: {
@@ -75,11 +74,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     navIcon: {
         transition: "all 0.3s ease-in-out",
-
-    }
+    },
 }));
 const Project = () => {
-
     const classes = useStyles();
     const params = useParams();
 
@@ -90,7 +87,7 @@ const Project = () => {
     }>({ prev: null, next: null });
 
     const [projectIndex, setProjectIndex] = useState(0);
-    useEffect(() => {        
+    useEffect(() => {
         const foundProjectIndex = projects.findIndex(
             (p) => p.id === params.project
         );
@@ -115,7 +112,7 @@ const Project = () => {
             setAdjacentProjects({
                 prev: prevProject,
                 next: nextProject,
-            })
+            });
         }
     }, [project, params.project]);
 
@@ -124,7 +121,6 @@ const Project = () => {
     const sections: string[] = Object.keys(project?.detailed || []);
     const sectionRefs = useRef<Array<HTMLElement | null>>([]);
 
-
     const navigate = useNavigate();
 
     if (!project) return <></>;
@@ -132,7 +128,6 @@ const Project = () => {
     const handleNavigate = (direction: "next" | "prev") => {
         let newProjectIndex: number;
 
-        
         let newProject = adjacentProjects[direction];
         if (direction === "next") {
             // setProjectIndex((prev) => prev + 1);
@@ -149,12 +144,9 @@ const Project = () => {
             //     newProjectIndex = projectIndex - 1;
             // }
         }
-        let url = `/projects/${encodeURIComponent(
-            newProject!.id
-        )}`;
+        let url = `/projects/${encodeURIComponent(newProject!.id)}`;
         navigate(url);
         setProject(newProject);
-        
     };
 
     return (
@@ -178,14 +170,13 @@ const Project = () => {
             <Box
                 onClick={() => handleNavigate("next")}
                 className={classes.wrapperRight}
-                display={{ xs: "none", md: "flex" }}
+                sx={{ display: { xs: "none", md: "flex" } }}
             >
                 <FontAwesomeIcon
                     icon={faChevronRight}
                     color="#444444"
                     size="2x"
                     className={classes.navIcon}
-
                 />
                 <Typography className={classes.tooltipRight} variant="tooltip">
                     {adjacentProjects.next?.title}
