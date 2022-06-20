@@ -3,14 +3,15 @@ import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Button } from "@mui/material";
 import { TimelineItemStruct } from "../types/types";
+import { openInNewTab } from "../util/utils";
 
 const Links: React.FC<{ entry: TimelineItemStruct }> = ({ entry }) => {
     const openner = (
         evt: React.MouseEvent<HTMLButtonElement, MouseEvent>,
         link: string
     ) => {
-        evt.stopPropagation();
-        window.open(link, "_blank");
+        evt.stopPropagation();        
+        openInNewTab(link)
     };
     return (
         <Box
@@ -43,6 +44,7 @@ const Links: React.FC<{ entry: TimelineItemStruct }> = ({ entry }) => {
                         variant="contained"
                         color="primary"
                         startIcon={<FontAwesomeIcon icon={faExternalLinkAlt} />}
+                        onClick={(evt) => openner(evt, link)}
                     >
                         Website
                     </Button>

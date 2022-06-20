@@ -23,6 +23,10 @@ const Profile: React.FC = ({}) => {
             break;
     }
 
+    const contactMe = () => {
+        window.location.href = "mailto:marcussoh38@gmail.com?subject=Website%20Contact%20Form";
+    }
+
     const navRef = useRef<HTMLDivElement>(null);
     return (
         
@@ -73,7 +77,7 @@ const Profile: React.FC = ({}) => {
                     see my work.
                 </Typography>
                 <Box sx={{ textAlign: "center", mt: 2 }}>
-                    <Button variant="contained" color="success">
+                    <Button variant="contained" color="success" onClick={contactMe}>
                         Contact me
                     </Button>
                 </Box>

@@ -346,7 +346,7 @@ export const projects: TimelineItemStruct[] = [
         totalImages: 2,
         techs: ["React", "NextJS", "Chakra UI", "Material-UI", "TypeScript", "MySQL"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
-        status: "Completed",
+        status: "In development",
         links: {
             github: [],
             website: [],
@@ -357,7 +357,7 @@ export const projects: TimelineItemStruct[] = [
                 `In the 4 months since the first version was completed, I learnt new skills such as React and NextJS.`,
                 `Thus, I rewrote the entire website, with a focus on performance.`,                
                 `space`,
-                `Project currently being maintained.`,
+                `Project currently in development.`,
             ]),
             technical: generateText([
                 `Language`,
@@ -371,6 +371,40 @@ export const projects: TimelineItemStruct[] = [
                 `Backend`,
                 `➟ NextJS`,
                 `➟ MySQL`,
+            ]),
+        },
+    },
+    {
+        id: "unblank",
+        type: "software",
+        date: "May 2022",
+        title: "Unblank",
+        description:
+            "A minigame-as-a-website to test vocabulary skills",
+        image: <CustomTimelineImage alt="Unblank" src="/img/software/unblank/1.webp" placeholderSrc="/img/software/unblank/small.png" />,
+        totalImages: 1,
+        techs: ["React", "Chakra UI", "TypeScript"],
+        icon: <FontAwesomeIcon icon={faGlobe} />,
+        status: "Completed",
+        links: {
+            github: [`https://github.com/HollaG/unblank`],
+            website: [`https://unblank.me`],
+        },
+        detailed: {
+            overview: generateText([
+                `One of my first serious attempts at a game, I was inspired by the recent popularity of games such as Wordle and Semantle.`,
+                `I had many ambitions with the game, such as more animations for the stick figures, but I decided to stick with more simple animations to reduce the workload and difficulty.`,
+                
+            ]),
+            technical: generateText([
+                `Language`,
+                `➟ TypeScript`,
+                `space`,
+                `Frontend`,
+                `➟ ReactJS`,
+                `➟ Chakra UI`,               
+              
+               
             ]),
         },
     },
