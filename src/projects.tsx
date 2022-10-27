@@ -1,19 +1,28 @@
 import { TimelineItemStruct } from "./types/types";
 
-
 import CustomTimelineImage from "./components/CustomTimelineImage";
 import TimelineComponent from "./components/Timeline/TimelineComponent";
 
 import { faChrome, faNodeJs } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Box, Typography } from "@mui/material";
-
+import { Box, Link, Typography } from "@mui/material";
 
 const generateText = (text: string[]) =>
     text.map((line, index) =>
         line === "space" ? (
             <Box key={index} sx={{ my: 2 }} />
+        ) : line.startsWith("link") ? (
+            <Link
+                target="_blank"
+                rel="noreferrer"
+                variant="h6"
+                color="#444444"
+                sx={{ textAlign: "left" }}
+                href={`${line.split("|||")[1]}`}
+            >
+                {line.split("|||")[2]}
+            </Link>
         ) : (
             <Typography
                 key={index}
@@ -35,7 +44,13 @@ export const projects: TimelineItemStruct[] = [
         title: "Discord Bot",
         description:
             "A Discord bot with admin functionality, as well as game-specific commands and a scoring system.",
-        image: <CustomTimelineImage alt="Discord" src="/img/software/discord/1.webp" placeholderSrc="/img/software/discord/small.png" />,
+        image: (
+            <CustomTimelineImage
+                alt="Discord"
+                src="/img/software/discord/1.webp"
+                placeholderSrc="/img/software/discord/small.png"
+            />
+        ),
         totalImages: 1,
         techs: ["NodeJS", "MySQL"],
         icon: <FontAwesomeIcon icon={faNodeJs} />,
@@ -54,11 +69,10 @@ export const projects: TimelineItemStruct[] = [
             ]),
             technical: generateText([
                 `Language`,
-                `➟ JavaScript`,                
+                `➟ JavaScript`,
                 `Backend`,
                 `➟ NodeJS`,
-              
-            ])
+            ]),
         },
     },
     {
@@ -68,7 +82,13 @@ export const projects: TimelineItemStruct[] = [
         title: "Logistics management system",
         description:
             "A logistics management system to help videography club members keep track of camera equipment easily.",
-        image: <CustomTimelineImage alt="Logistics management system" src="/img/software/studiov/1.webp" placeholderSrc="/img/software/studiov/small.png" />,
+        image: (
+            <CustomTimelineImage
+                alt="Logistics management system"
+                src="/img/software/studiov/1.webp"
+                placeholderSrc="/img/software/studiov/small.png"
+            />
+        ),
         totalImages: 3,
         techs: ["Bootstrap", "NodeJS", "ExpressJS", "Pug", "MySQL"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -94,7 +114,7 @@ export const projects: TimelineItemStruct[] = [
                 `Backend`,
                 `➟ NodeJS with Express`,
                 `➟ MySQL`,
-            ])
+            ]),
         },
     },
     {
@@ -104,7 +124,13 @@ export const projects: TimelineItemStruct[] = [
         title: "COVID-19 interactive grapher",
         description:
             "A web application to help users visualize COVID-19 data, with support for graphs using custom axes and plots.",
-        image: <CustomTimelineImage alt="COVID-19 interactive grapher" src="/img/software/covid/1.webp" placeholderSrc="/img/software/covid/small.png" />,
+        image: (
+            <CustomTimelineImage
+                alt="COVID-19 interactive grapher"
+                src="/img/software/covid/1.webp"
+                placeholderSrc="/img/software/covid/small.png"
+            />
+        ),
         totalImages: 2,
         techs: ["JavaScript", "Pug", "ExpressJS", "FusionCharts"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -129,7 +155,13 @@ export const projects: TimelineItemStruct[] = [
         title: "2D Chemistry Lab",
         description:
             "A 2D chemistry lab supporting basic visualization of chemical reactions as tested in the A Level syllabus.",
-        image: <CustomTimelineImage alt="2D Chemistry Lab" src="/img/software/chemlab/1.webp" placeholderSrc="/img/software/chemlab/small.png" />,
+        image: (
+            <CustomTimelineImage
+                alt="2D Chemistry Lab"
+                src="/img/software/chemlab/1.webp"
+                placeholderSrc="/img/software/chemlab/small.png"
+            />
+        ),
         totalImages: 4,
         techs: ["JavaScript", "Pug", "ExpressJS"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -155,7 +187,13 @@ export const projects: TimelineItemStruct[] = [
         title: "SAF Parade State Generator",
         description:
             "A web application to help keep track of personnel in the SAF, reducing the hassle of manually entering data.",
-        image: <CustomTimelineImage alt="SAF Parade State Generator" src="/img/software/paradestate/1.webp" placeholderSrc="/img/software/paradestate/small.png" />,
+        image: (
+            <CustomTimelineImage
+                alt="SAF Parade State Generator"
+                src="/img/software/paradestate/1.webp"
+                placeholderSrc="/img/software/paradestate/small.png"
+            />
+        ),
         totalImages: 1,
         techs: ["Bootstrap", "NodeJS", "ExpressJS", "Pug", "MySQL"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -193,7 +231,13 @@ export const projects: TimelineItemStruct[] = [
         title: "ComputerCheck",
         description:
             "A tool to gather information about laptops and monitors in one place, making it easier to search across the different retailer sites.",
-        image: <CustomTimelineImage alt="ComputerCheck" src="/img/software/computercheck/1.webp" placeholderSrc="/img/software/computercheck/small.png" />,
+        image: (
+            <CustomTimelineImage
+                alt="ComputerCheck"
+                src="/img/software/computercheck/1.webp"
+                placeholderSrc="/img/software/computercheck/small.png"
+            />
+        ),
         totalImages: 2,
         techs: ["Bootstrap", "NodeJS", "ExpressJS", "Pug", "MySQL"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -229,7 +273,13 @@ export const projects: TimelineItemStruct[] = [
         title: "EXIFChart",
         description:
             "A web application to help users analyze and chart the EXIF data of a batch of images.",
-        image: <CustomTimelineImage alt="EXIFChart" src="/img/software/exifchart/1.webp" placeholderSrc="/img/software/exifchart/small.png" />,
+        image: (
+            <CustomTimelineImage
+                alt="EXIFChart"
+                src="/img/software/exifchart/1.webp"
+                placeholderSrc="/img/software/exifchart/small.png"
+            />
+        ),
         totalImages: 4,
         techs: ["React", "TypeScript", "Tailwind", "ChartJS"],
 
@@ -263,7 +313,13 @@ export const projects: TimelineItemStruct[] = [
         title: "SAF electronic Operation Checklists",
         description:
             "A web application to complete vehicluar operation checklists online, reducing paper wastage.",
-        image: <CustomTimelineImage alt="SAF electronic Operation Checklists" src="/img/software/eoc/1.webp" placeholderSrc="/img/software/eoc/small.png" />,
+        image: (
+            <CustomTimelineImage
+                alt="SAF electronic Operation Checklists"
+                src="/img/software/eoc/1.webp"
+                placeholderSrc="/img/software/eoc/small.png"
+            />
+        ),
         totalImages: 1,
         techs: ["React", "Material-UI", "TypeScript", "MongoDB", "NodeJS"],
         techsBrief: ["React", "NodeJS", "MongoDB"],
@@ -301,7 +357,13 @@ export const projects: TimelineItemStruct[] = [
         title: "SimpleShopping",
         description:
             "A chrome extension to aid users in their online shopping journey, with multiple quality-of-life features.",
-        image: <CustomTimelineImage alt="SimpleShopping" src="/img/software/simpleshopping/1.webp" placeholderSrc="/img/software/simpleshopping/small.png" />,
+        image: (
+            <CustomTimelineImage
+                alt="SimpleShopping"
+                src="/img/software/simpleshopping/1.webp"
+                placeholderSrc="/img/software/simpleshopping/small.png"
+            />
+        ),
         totalImages: 5,
         techs: ["React", "TypeScript", "Tailwind"],
         icon: <FontAwesomeIcon icon={faChrome} />,
@@ -342,9 +404,22 @@ export const projects: TimelineItemStruct[] = [
         title: "SAF Parade State Generator v2",
         description:
             "A performance- and visually- enhanced version of the old Parade State Generator.",
-        image: <CustomTimelineImage alt="SAF Parade State Generator" src="/img/software/paradestatev2/1.webp" placeholderSrc="/img/software/paradestatev2/small.png" />,
+        image: (
+            <CustomTimelineImage
+                alt="SAF Parade State Generator"
+                src="/img/software/paradestatev2/1.webp"
+                placeholderSrc="/img/software/paradestatev2/small.png"
+            />
+        ),
         totalImages: 2,
-        techs: ["React", "NextJS", "Chakra UI", "Material-UI", "TypeScript", "MySQL"],
+        techs: [
+            "React",
+            "NextJS",
+            "Chakra UI",
+            "Material-UI",
+            "TypeScript",
+            "MySQL",
+        ],
         icon: <FontAwesomeIcon icon={faGlobe} />,
         status: "In development",
         links: {
@@ -355,7 +430,7 @@ export const projects: TimelineItemStruct[] = [
             overview: generateText([
                 `Version 2 of the SAF Parade State Generator website.`,
                 `In the 4 months since the first version was completed, I learnt new skills such as React and NextJS.`,
-                `Thus, I rewrote the entire website, with a focus on performance.`,                
+                `Thus, I rewrote the entire website, with a focus on performance.`,
                 `space`,
                 `Project currently in development.`,
             ]),
@@ -379,9 +454,14 @@ export const projects: TimelineItemStruct[] = [
         type: "software",
         date: "May 2022",
         title: "Unblank",
-        description:
-            "A minigame-as-a-website to test vocabulary skills",
-        image: <CustomTimelineImage alt="Unblank" src="/img/software/unblank/1.webp" placeholderSrc="/img/software/unblank/small.png" />,
+        description: "A minigame-as-a-website to test vocabulary skills",
+        image: (
+            <CustomTimelineImage
+                alt="Unblank"
+                src="/img/software/unblank/1.webp"
+                placeholderSrc="/img/software/unblank/small.png"
+            />
+        ),
         totalImages: 1,
         techs: ["React", "Chakra UI", "TypeScript"],
         icon: <FontAwesomeIcon icon={faGlobe} />,
@@ -394,7 +474,6 @@ export const projects: TimelineItemStruct[] = [
             overview: generateText([
                 `One of my first serious attempts at a game, I was inspired by the recent popularity of games such as Wordle and Semantle.`,
                 `I had many ambitions with the game, such as more animations for the stick figures, but I decided to stick with more simple animations to reduce the workload and difficulty.`,
-                
             ]),
             technical: generateText([
                 `Language`,
@@ -402,10 +481,50 @@ export const projects: TimelineItemStruct[] = [
                 `space`,
                 `Frontend`,
                 `➟ ReactJS`,
-                `➟ Chakra UI`,               
-              
-               
+                `➟ Chakra UI`,
             ]),
+        },
+    },
+    {
+        id: "telegram",
+        type: "software",
+        date: "August 2022",
+        title: "Telegram Bots",
+        description:
+            "A collection of Telegram Bots that I've coded for various purposes.",
+        image: (
+            <CustomTimelineImage
+                alt="Telegram bots"
+                src="/img/software/telegram/1.webp"
+                placeholderSrc="/img/software/telegram/small.png"
+            />
+        ),
+        totalImages: 1,
+        techs: ["TypeScript", "NodeJS"],
+        icon: <FontAwesomeIcon icon={faGlobe} />,
+        status: "Completed",
+        links: {
+            github: [
+                "https://github.com/HollaG/findmodbot",
+                "https://github.com/HollaG/telegram_message_chainer",
+                "https://github.com/HollaG/meetup",
+            ],
+            website: [],
+        },
+        detailed: {
+            overview: generateText([
+                `A couple of Telegram bots I've made so far:`,
+                `space`,
+                `link|||https://t.me/findmodbot|||@findmodbot`,
+                `A bot that can access NUSMods' module data from within Telegram.`,
+                `space`,
+                `link|||https://t.me/msgchainbot|||@msgchainbot`,
+                `A bot to help with message chaining: Reducing spam and removing the hassle of copy-pasting.`,
+                `space`,
+                `link|||https://t.me/meetup_plannerbot|||@meetup_plannerbot`,
+                `A bot to help with planning meetups, where people can interactively select the dates where they are free and the bot will collate the dates.`,
+            ]),
+            technical: generateText([`Language`, `➟ TypeScript`]),
         },
     },
 ];

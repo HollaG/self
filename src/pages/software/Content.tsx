@@ -17,7 +17,11 @@ const Content: React.FC<{
 }> = ({ softwareRefs }) => {
     const educations = [
         {
-            date: "2020 - now",
+            date: "2022 - 2026",
+            location: "Computer Science, National University of Singapore",
+        },
+        {
+            date: "2020 - 2022",
             location: "Serving NS",
         },
         {
